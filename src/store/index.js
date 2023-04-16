@@ -29,12 +29,18 @@ const store = createStore({
   mutations: {
     addList(state,payload){
       state.lists.push({title:payload.title,cards:[]})
-    }
+    },
+    deleteList(state,payload){
+      state.lists.splice(payload.listIndex,1)
+    },
   },
   actions: {
     addList(context,payload){
       context.commit('addList',payload)
-    }
+    },
+    deleteList(context,payload){
+      context.commit('deleteList',payload)
+    },
   },
   // getters: {
   // }
