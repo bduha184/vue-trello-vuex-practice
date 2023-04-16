@@ -1,18 +1,12 @@
 <template>
-  <div>
-    <header>my Trello</header>
-    <main>
-      <p class="info-line">All: 0 tasks</p>
-      <ListAdd />
-    </main>
-  </div>
+  <TrelloBoard />
 </template>
 
 <script>
-import ListAdd from "./components/ListAdd.vue";
+import TrelloBoard from "./components/TrelloBoard.vue";
 export default {
   components: {
-    ListAdd,
+    TrelloBoard,
   },
 };
 </script>
