@@ -2,34 +2,34 @@
   <div class="list">
     <div class="listheader">
       <p class="list-title">{{ title }}</p>
-      <div
-      class="deletelist"
-      @click="deleteList"
-      >
-      ×
+      <div class="deletelist" @click="deleteList">×</div>
     </div>
-    </div>
+    <CardAdd :listIndex="listIndex"/>
   </div>
 </template>
 
 <script>
+import CardAdd from "./CardAdd.vue";
 export default {
-  props:{
-    title:{
-      type:String,
-      required:true
+  components: {
+    CardAdd,
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
     },
-    listIndex:{
-      type:Number,
-      required:true
+    listIndex: {
+      type: Number,
+      required: true,
     },
   },
-  methods:{
-    deleteList(){
-      if(confirm('本当に削除しますか？')){
-        this.$store.dispatch('deleteList',{listIndex:this.listIndex})
+  methods: {
+    deleteList() {
+      if (confirm("本当に削除しますか？")) {
+        this.$store.dispatch("deleteList", { listIndex: this.listIndex });
       }
-    }
-  }
+    },
+  },
 };
 </script>
