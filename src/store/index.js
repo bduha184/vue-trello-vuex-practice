@@ -33,6 +33,9 @@ const store = createStore({
     deleteList(state,payload){
       state.lists.splice(payload.listIndex,1)
     },
+    addCardToList(state,payload){
+      state.lists[payload.listIndex].cards.push({body:payload.body})
+    },
   },
   actions: {
     addList(context,payload){
@@ -40,6 +43,9 @@ const store = createStore({
     },
     deleteList(context,payload){
       context.commit('deleteList',payload)
+    },
+    addCardToList(context,payload){
+      context.commit('addCardToList',payload)
     },
   },
   // getters: {
